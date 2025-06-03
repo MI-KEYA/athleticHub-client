@@ -1,10 +1,28 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
+
+import Footer from '../Components/Footer';
+import Header from '../Components/Header';
+import Navber from '../Components/Navber';
 
 const MainLayout = () => {
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
     return (
         <div>
-            <Outlet />
+            <header>
+                {
+                    isHomePage ? <Header /> : <Navber />
+                }
+            </header>
+
+            <main>
+
+                <Outlet />
+            </main>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     );
 };

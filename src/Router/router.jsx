@@ -4,6 +4,7 @@ import {
 } from "react-router";
 import MainLayout from '../Layouts/MainLayout';
 import Home from '../Pages/Home';
+import BookEvent from '../Components/BookEvent';
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+            },
+            {
+                path: '/bookEvent',
+                Component: BookEvent
             }
         ]
     },
