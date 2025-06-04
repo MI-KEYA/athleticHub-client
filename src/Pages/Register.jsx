@@ -1,14 +1,39 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { NavLink, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../Context/AuthContext';
 
 const Register = () => {
+    const { createUser } = use(AuthContext);
+    const navigate = useNavigate();
+    const handleSignUp = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const password = form.password.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+
+        console.log(name, password, email, photoURL)
+        createUser(email, password)
+            .then(res => {
+                const user = res.user
+                console.log(user);
+                navigate('/');
+            })
+            .catch(err => {
+                const errorMessage = err.message;
+                alert(errorMessage);
+            })
+
+
+    }
     return (
         <div className='flex justify-center items-center pt-10'>
 
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
 
-                <form className="card-body">
+                <form onSubmit={handleSignUp} className="card-body">
                     <h2 className='text-center font-semibold text-2xl py-5'>Register Your Account</h2>
                     <fieldset className="fieldset">
                         <label className="label">Name</label>
