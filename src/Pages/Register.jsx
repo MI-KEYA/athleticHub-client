@@ -2,9 +2,10 @@ import React, { use } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createUser } = use(AuthContext);
+    const { createUser, setUser, signInWithGoogle } = use(AuthContext);
     const navigate = useNavigate();
     const handleSignUp = (e) => {
         e.preventDefault()
@@ -18,16 +19,54 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 const user = res.user
-                console.log(user);
+                setUser(user)
+                // console.log(user);
+                Swal.fire({
+                    title: "Signed Up Successfully!",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500
+                });
                 navigate('/');
             })
             .catch(err => {
                 const errorMessage = err.message;
-                alert(errorMessage);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${errorMessage}`,
+
+                });
             })
 
 
     }
+
+    const handleGoogleSignIn = (e) => {
+        e.preventDefault();
+        signInWithGoogle()
+            .then((res) => {
+                const user = res.user;
+                setUser(user);
+                Swal.fire({
+                    title: "LoggedIn Successfully!",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500
+                });
+                navigate('/')
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${errorMessage}`,
+
+                });
+            })
+    }
+
     return (
         <div className='flex justify-center items-center pt-10'>
 
@@ -74,7 +113,7 @@ const Register = () => {
                         <button
                             type='button'
                             className="btn btn-outline border-blue-950 mt-2"
-                        // onClick={handleGoogleSignIn}
+                            onClick={handleGoogleSignIn}
                         >
                             <FcGoogle />
                             Continue with Google

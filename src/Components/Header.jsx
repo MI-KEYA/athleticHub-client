@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
 import { motion } from "motion/react"
+import { AuthContext } from '../Context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Header = () => {
+    const { user, logOut, loading } = useContext(AuthContext);
+    if (loading) {
+        return <div className="text-center py-10">Loading...</div>; // or a spinner
+    }
+
+
     const link = <>
         <NavLink to='/'
             className={({ isActive }) =>
@@ -27,6 +35,33 @@ const Header = () => {
 
 
     </>
+
+    const handleLogOut = () => {
+        // console.log("logged out")
+        logOut()
+
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Logged Out Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch((err) => {
+                const errorMessage = err.message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${errorMessage}`,
+
+                });
+
+
+            })
+    }
+
+
     return (
         <div
             className="min-h-screen"
@@ -62,8 +97,18 @@ const Header = () => {
                         {link}
                     </ul>
                 </div>
+
                 <div className="navbar-end flex gap-4">
-                    <NavLink to='/auth/login' className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full'>Login</NavLink>
+                    {user?.email && <div className='ml-5 text-blue-900'>{user.email}</div>}
+
+                    {
+                        user ? (
+                            <button onClick={handleLogOut} className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full'>LogOut</button>
+                        ) : (
+                            <NavLink to='/auth/login' className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full'>Login</NavLink>
+                        )
+                    }
+
                     <NavLink to='/auth/register' className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full hidden lg:flex'>Register</NavLink>
                 </div>
             </div>
