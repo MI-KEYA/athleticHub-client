@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Components/Header';
 import Hero from '../Components/Hero';
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 const Home = () => {
     return (

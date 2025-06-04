@@ -1,25 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
+import Lottie from 'lottie-react';
+import loginLottie from '../assets/signIn.json'
 
 const Login = () => {
     return (
-        <div>
-            <div className='flex justify-center items-center pt-10'>
-                {/* <Helmet><title>PlantCare | Login</title></Helmet> */}
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
 
-                    <form className="card-body">
-                        <h2 className='text-center font-semibold text-2xl py-5'>Login Your Account</h2>
-                        <fieldset className="fieldset">
+        <div className="hero  lg:mt-10">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                    <Lottie style={{ width: '300px' }} animationData={loginLottie} loop={true}></Lottie>
+                </div>
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <h1 className='mt-10 text-center  text-xl lg:text-3xl font-bold'>Login Your Account</h1>
+                    <div className="card-body">
+                        <form className="fieldset">
+
                             <label className="label">Email</label>
                             <input
                                 name='email'
                                 type="email"
                                 className="input"
                                 placeholder="Enter Your Email"
-                            />
-
+                            ></input>
                             <label className="label">Password</label>
                             <input
                                 name='password'
@@ -39,8 +43,8 @@ const Login = () => {
                                 Continue with Google
                             </button>
                             <p className='pt-3 text-center font-semibold'>Don't Have An account?<NavLink to='/auth/register' className='text-blue-900'>Register</NavLink></p>
-                        </fieldset>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

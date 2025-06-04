@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import { motion } from "motion/react"
 
 const Header = () => {
     const link = <>
@@ -69,7 +70,20 @@ const Header = () => {
 
             {/* You can add hero content here if needed */}
             <div className="flex flex-col justify-center items-center text-center text-white h-[calc(100vh-64px)]">
-                <h1 className="text-5xl text-blue-300 font-bold">Welcome to AthleticHub</h1>
+
+                <motion.h1
+
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1, transition: { duration: 4 } }}
+                    className="text-5xl text-blue-300 font-bold text-center my-10">Welcome to <motion.span
+                        animate={
+                            {
+                                color: ["#3B82F6", "#8B5CF6", "#EC4899"],
+                                transition: { duration: 4, repeat: Infinity }
+                            }
+                        }>
+                        AthleticHub</motion.span>
+                </motion.h1>
                 <p className="text-lg font-semibold text-blue-800 mt-4">Be one of us.</p>
             </div>
         </div>
