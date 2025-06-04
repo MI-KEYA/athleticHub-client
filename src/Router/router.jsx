@@ -8,6 +8,8 @@ import BookEvent from '../Components/BookEvent';
 import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
+import MyBookings from '../Components/MyBookings';
+import ManageEvents from '../Components/ManageEvents';
 
 const router = createBrowserRouter([
     {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
             {
                 path: '/bookEvent',
                 Component: BookEvent
+            },
+            {
+                path: '/myBookings',
+                Component: MyBookings
+            },
+            {
+                path: '/manageEvents',
+                Component: ManageEvents
             }
         ]
     },

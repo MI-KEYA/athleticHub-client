@@ -53,8 +53,8 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-4">
-                    <NavLink to='/auth/login' className='btn'>Login</NavLink>
-                    <NavLink to='/auth/register' className='btn hidden lg:flex'>Register</NavLink>
+                    <NavLink to='/auth/login' className='btn text-blue-900 rounded-full'>Login</NavLink>
+                    <NavLink to='/auth/register' className='btn  text-blue-900 rounded-full mr-4 hidden lg:flex'>Register</NavLink>
                 </div>
             </div>
 
