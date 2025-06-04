@@ -6,22 +6,22 @@ const Navber = () => {
     const link = <>
         <NavLink to='/'
             className={({ isActive }) =>
-                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-white' : 'text-gray-800 ml-5 font-semibold '
+                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '
             }>Home
         </NavLink>
         <NavLink to='/bookEvent'
             className={({ isActive }) =>
-                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-white' : 'text-gray-800 ml-5 font-semibold '
+                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '
             }>Book Event
         </NavLink>
         <NavLink to='/myBookings'
             className={({ isActive }) =>
-                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-white' : 'text-gray-800 ml-5 font-semibold '
+                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '
             }>My Bookings
         </NavLink>
         <NavLink to='/manageEvents'
             className={({ isActive }) =>
-                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-white' : 'text-gray-800 ml-5 font-semibold '
+                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '
             }>Manage Events
         </NavLink>
     </>
@@ -52,8 +52,9 @@ const Navber = () => {
                         {link}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end flex gap-4">
+                    <NavLink to='/auth/login' className='btn'>Login</NavLink>
+                    <NavLink to='/auth/register' className='btn hidden lg:flex'>Register</NavLink>
                 </div>
             </div>
 

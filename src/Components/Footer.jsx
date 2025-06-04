@@ -3,6 +3,7 @@ import { NavLink } from 'react-router';
 
 const Footer = () => {
     const link = <>
+        <NavLink to='/' className='ml-5 font-semibold'>Home</NavLink>
         <NavLink to='/bookEvent' className='ml-5 font-semibold'>Book Event</NavLink>
         <NavLink to='/myBookings' className='ml-5 font-semibold'>My Bookings</NavLink>
         <NavLink to='/manageEvents' className='ml-5 font-semibold'>Manage Events</NavLink>

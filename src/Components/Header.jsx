@@ -61,8 +61,9 @@ const Header = () => {
                         {link}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end flex gap-4">
+                    <NavLink to='/auth/login' className='btn'>Login</NavLink>
+                    <NavLink to='/auth/register' className='btn hidden lg:flex'>Register</NavLink>
                 </div>
             </div>
 
