@@ -3,13 +3,14 @@ import { NavLink } from 'react-router';
 import { motion } from "motion/react"
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import userIcon from '/user.png';
 
 const Header = () => {
     const { user, logOut, loading } = useContext(AuthContext);
     if (loading) {
         return <div className="text-center py-10">Loading...</div>; // or a spinner
     }
-
+    console.log(user);
 
     const link = <>
         <NavLink to='/'
@@ -99,7 +100,13 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-end flex gap-4">
-                    {user?.email && <div className='ml-5 text-blue-900'>{user.email}</div>}
+                    {/* {user?.email && <div className='ml-5 text-blue-900'>{user.email}</div>} */}
+                    <img
+                        className='w-12 rounded-full '
+                        src={user && user.photoURL ? user.photoURL : userIcon}
+                        alt="User"
+                        title={user?.displayName || "Guest"}
+                    />
 
                     {
                         user ? (

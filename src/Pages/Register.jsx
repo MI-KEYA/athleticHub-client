@@ -5,7 +5,7 @@ import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createUser, setUser, signInWithGoogle } = use(AuthContext);
+    const { createUser, setUser, signInWithGoogle, updateUser } = use(AuthContext);
     const navigate = useNavigate();
     const handleSignUp = (e) => {
         e.preventDefault()
@@ -16,18 +16,26 @@ const Register = () => {
         const photoURL = form.photoURL.value;
 
         console.log(name, password, email, photoURL)
+
         createUser(email, password)
             .then(res => {
                 const user = res.user
-                setUser(user)
-                // console.log(user);
-                Swal.fire({
-                    title: "Signed Up Successfully!",
-                    icon: "success",
-                    draggable: true,
-                    timer: 1500
-                });
-                navigate('/');
+                updateUser({ displayName: name, photoURL: photoURL })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photoURL })
+                        Swal.fire({
+                            title: "Signed Up Successfully!",
+                            icon: "success",
+                            draggable: true,
+                            timer: 1500
+                        });
+                        navigate("/")
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setUser(user);
+                    })
+
             })
             .catch(err => {
                 const errorMessage = err.message;
