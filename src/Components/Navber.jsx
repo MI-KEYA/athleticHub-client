@@ -37,6 +37,11 @@ const Navber = () => {
                 isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '
             }>Home
         </NavLink>
+        <NavLink to='/createEvent'
+            className={({ isActive }) =>
+                isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold  '
+            }>Create Event
+        </NavLink>
         <NavLink to='/bookEvent'
             className={({ isActive }) =>
                 isActive ? 'text-gray-500 ml-5 font-bold border-b-3  border-blue-950' : 'text-gray-800 ml-5 font-semibold '

@@ -10,6 +10,7 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import MyBookings from '../Components/MyBookings';
 import ManageEvents from '../Components/ManageEvents';
+import CreateEvent from '../Components/CreateEvent';
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+            },
+            {
+                path: '/createEvent',
+                Component: CreateEvent
             },
             {
                 path: '/bookEvent',

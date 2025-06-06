@@ -1,0 +1,77 @@
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
+
+const CreateEvent = () => {
+    const { user, loading } = useContext(AuthContext)
+    if (loading) {
+        return <div className="text-center py-10">Loading...</div>; // or a spinner
+    }
+    return (
+        <div className='my-10 p-10 rounded-3xl  w-2/3 mx-auto border-2 border-blue-900'>
+
+            <div className='mb-10 text-center text-blue-950 space-y-4'>
+                <h2 className='text-6xl primary'>Add Event</h2>
+                <p className=''><span className='font-semibold'>Ready to host your next athletic event?</span><br></br>
+                    Fill out the form below to create a new athletic event. Make sure to provide accurate details so participants can find and join your event easily. Once submitted, your event will appear in the Event List and be visible to all users.
+                </p>
+            </div>
+            <div>
+                <form >
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                        {/* Event Name */}
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Event Name</label>
+                            <input type="text" name='eventname' className="input w-full"
+                                placeholder="Event Name" />
+                        </fieldset>
+                        {/* Event Type */}
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Event Type</label>
+                            <select name='event' className="input w-full">
+                                <option value="">Select Event Type</option>
+                                <option value="Swimming">Swimming</option>
+                                <option value="Sprinting">Sprinting</option>
+                                <option value="Long Jump">Long Jump</option>
+                                <option value="High Jump">High Jump</option>
+                                <option value="Hurdle Race">Hurdle Race</option>
+                            </select>
+                        </fieldset>
+                        {/* description */}
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Description</label>
+                            <input type="text" name='description' className="input w-full"
+                                placeholder="Description" />
+                        </fieldset>
+                        {/* event Date */}
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Event Date</label>
+                            <input type="date" name='eventdate' className="input w-full"
+                                placeholder="Event Date" />
+                        </fieldset>
+                        {/* creator detail */}
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Creator Email</label>
+                            <input type="text" name='useremail' className="input w-full" defaultValue={user.email}
+                                placeholder="Creator Email" />
+                        </fieldset>
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Creator Name</label>
+                            <input type="text" name='username' className="input w-full" defaultValue={user.displayName}
+                                placeholder="Creator Name" />
+                        </fieldset>
+                    </div>
+                    {/* photourl */}
+                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
+                        <label className="label">Event PhotoURL</label>
+                        <input type="text" name='photo' className="input w-full"
+                            placeholder="PhotoURL" />
+                    </fieldset>
+                    <input type="submit" className='btn text-white  hover:bg-blue-950 bg-blue-900 
+                                w-full' name="" value='Add Event' />
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default CreateEvent;

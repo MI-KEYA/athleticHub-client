@@ -18,6 +18,11 @@ const Header = () => {
                 isActive ? 'text-gray-500 font-bold border-b-3 ml-5   border-white' : 'text-gray-800 ml-5 font-semibold '
             }>Home
         </NavLink>
+        <NavLink to='/createEvent'
+            className={({ isActive }) =>
+                isActive ? 'text-gray-500 font-bold border-b-3 ml-5 border-white' : 'text-gray-800 ml-5 font-semibold '
+            }>Create Event
+        </NavLink>
         <NavLink to='/bookEvent'
             className={({ isActive }) =>
                 isActive ? 'text-gray-500 font-bold border-b-3 ml-5 border-white' : 'text-gray-800 ml-5 font-semibold '
@@ -33,6 +38,7 @@ const Header = () => {
                 isActive ? 'text-gray-500 font-bold border-b-3 ml-5 border-white' : 'text-gray-800 ml-5 font-semibold '
             }>Manage Events
         </NavLink>
+
 
 
     </>
