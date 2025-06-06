@@ -7,11 +7,12 @@ const CreateEvent = () => {
         return <div className="text-center py-10">Loading...</div>; // or a spinner
     }
     return (
-        <div className='my-10 p-10 rounded-3xl  w-2/3 mx-auto border-2 border-blue-900'>
+        <div className='my-10 p-10 rounded-3xl w-10/11  lg:w-2/3 mx-auto border-2 border-blue-900'>
 
             <div className='mb-10 text-center text-blue-950 space-y-4'>
-                <h2 className='text-6xl primary'>Add Event</h2>
-                <p className=''><span className='font-semibold'>Ready to host your next athletic event?</span><br></br>
+                <h2 className='lg:text-6xl text-3xl font-semibold'>Add Event</h2>
+                <p className='font-semibold'>Ready to host your next athletic event?</p>
+                <p className=''>
                     Fill out the form below to create a new athletic event. Make sure to provide accurate details so participants can find and join your event easily. Once submitted, your event will appear in the Event List and be visible to all users.
                 </p>
             </div>
@@ -66,7 +67,7 @@ const CreateEvent = () => {
                         <input type="text" name='photo' className="input w-full"
                             placeholder="PhotoURL" />
                     </fieldset>
-                    <input type="submit" className='btn text-white  hover:bg-blue-950 bg-blue-900 
+                    <input type="submit" className='btn text-white  hover:bg-blue-900 bg-blue-950 
                                 w-full' name="" value='Add Event' />
                 </form>
             </div>

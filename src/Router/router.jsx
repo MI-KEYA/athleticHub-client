@@ -11,11 +11,13 @@ import Register from '../Pages/Register';
 import MyBookings from '../Components/MyBookings';
 import ManageEvents from '../Components/ManageEvents';
 import CreateEvent from '../Components/CreateEvent';
+import Error from '../Pages/Error';
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: MainLayout,
+        errorElement: <Error />,
         children: [
             {
                 index: true,
