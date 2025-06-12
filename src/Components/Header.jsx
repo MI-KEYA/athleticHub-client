@@ -4,11 +4,12 @@ import { motion } from "motion/react"
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import userIcon from '/user.png';
+import Loading from './Loading';
 
 const Header = () => {
     const { user, logOut, loading } = useContext(AuthContext);
     if (loading) {
-        return <div className="text-center py-10">Loading...</div>; // or a spinner
+        return <Loading />
     }
     // console.log(user);
 

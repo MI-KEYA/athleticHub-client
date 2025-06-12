@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const EventCards = ({ events }) => {
-    const { _id, eventname, description, photo } = events
+    const { _id, eventname, description, photo, eventdate } = events
     console.log(eventname);
     return (
 
@@ -17,9 +17,8 @@ const EventCards = ({ events }) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{eventname}</h2>
                 <p>{description}</p>
-                <div className="card-actions">
-                    <Link to={`http://localhost:3000/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full hidden lg:flex'>Details</Link>
-                </div>
+                <div className="badge badge-outline badge-primary">Event-Date: {eventdate}</div>
+                <Link to={`events/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full  lg:flex'>Details</Link>
             </div>
         </div>
 

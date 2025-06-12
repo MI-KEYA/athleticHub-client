@@ -19,7 +19,7 @@ const Home = () => {
         .slice(0, 6);
 
     return (
-        <div className=' w-2/3 mx-auto mb-10'>
+        <div className=' lg:w-2/3 mx-auto mb-10'>
             <motion.h1
 
                 initial={{ scale: 0 }}

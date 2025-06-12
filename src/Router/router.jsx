@@ -12,6 +12,8 @@ import ManageEvents from '../Components/ManageEvents';
 import CreateEvent from '../Components/CreateEvent';
 import Error from '../Pages/Error';
 import Home from '../Pages/Home/Home';
+import PrivateRoute from '../Context/PrivateRoute';
+import EventDetails from '../Components/EventDetails';
 
 const router = createBrowserRouter([
     {
@@ -22,23 +24,40 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
+
             },
             {
                 path: '/createEvent',
-                Component: CreateEvent
+                element: <PrivateRoute>
+                    <CreateEvent />
+                </PrivateRoute>
+
             },
             {
                 path: '/bookEvent',
-                Component: BookEvent
+                element: <PrivateRoute>
+                    <BookEvent />
+                </PrivateRoute>
             },
             {
                 path: '/myBookings',
-                Component: MyBookings,
+                element: <PrivateRoute>
+                    <MyBookings />
+                </PrivateRoute>
 
             },
             {
                 path: '/manageEvents',
-                Component: ManageEvents
+                element: <PrivateRoute>
+                    <ManageEvents />
+                </PrivateRoute>
+            },
+            {
+                path: '/events/:id',
+                element: <PrivateRoute>
+                    <EventDetails />
+                </PrivateRoute>
+
             }
         ]
     },
