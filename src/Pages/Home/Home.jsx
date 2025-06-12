@@ -7,11 +7,17 @@ import Events from './Events';
 
 const Home = () => {
     const [events, setEvents] = useState([])
+
+
     useEffect(() => {
         fetch('http://localhost:3000/events')
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [])
+    const featuredEvents = [...events]
+        .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate))
+        .slice(0, 6);
+
     return (
         <div className=' w-2/3 mx-auto mb-10'>
             <motion.h1
@@ -30,7 +36,8 @@ const Home = () => {
 
             <Hero />
             <Suspense fallback={"loading.."}>
-                <Events events={events} />
+                <Events events={featuredEvents} />
+
             </Suspense>
         </div>
     );
