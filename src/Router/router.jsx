@@ -14,6 +14,8 @@ import Error from '../Pages/Error';
 import Home from '../Pages/Home/Home';
 import PrivateRoute from '../Context/PrivateRoute';
 import EventDetails from '../Components/EventDetails';
+import Loading from '../Components/Loading';
+import UpdateEvent from '../Components/UpdateEvent';
 
 const router = createBrowserRouter([
     {
@@ -48,9 +50,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/manageEvents',
+                loader: () => fetch('http://localhost:3000/events'),
                 element: <PrivateRoute>
                     <ManageEvents />
-                </PrivateRoute>
+                </PrivateRoute>,
+                hydrateFallbackElement: <Loading />
+            },
+            {
+                path: '/updateEvents/:id',
+                Component: UpdateEvent,
+                loader: ({ params }) => fetch(`http://localhost:3000/events/${params.id}`),
+                hydrateFallbackElement: <Loading />
             },
             {
                 path: '/events/:id',
