@@ -33,7 +33,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myBookings',
-                Component: MyBookings
+                Component: MyBookings,
+
             },
             {
                 path: '/manageEvents',

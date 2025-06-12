@@ -10,7 +10,7 @@ const Header = () => {
     if (loading) {
         return <div className="text-center py-10">Loading...</div>; // or a spinner
     }
-    console.log(user);
+    // console.log(user);
 
     const link = <>
         <NavLink to='/'

@@ -1,0 +1,29 @@
+
+import React from 'react';
+import { Link } from 'react-router';
+
+const EventCards = ({ events }) => {
+    const { _id, eventname, description, photo } = events
+    console.log(eventname);
+    return (
+
+        <div className="card bg-base-100  shadow-sm">
+            <figure className="px-10 pt-10">
+                <img
+                    src={photo}
+                    alt="event"
+                    className="rounded-xl" />
+            </figure>
+            <div className="card-body items-center text-center">
+                <h2 className="card-title">{eventname}</h2>
+                <p>{description}</p>
+                <div className="card-actions">
+                    <Link to={`http://localhost:3000/${_id}`} className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full hidden lg:flex'>Details</Link>
+                </div>
+            </div>
+        </div>
+
+    );
+};
+
+export default EventCards;

@@ -1,11 +1,48 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const CreateEvent = () => {
     const { user, loading } = useContext(AuthContext)
     if (loading) {
         return <div className="text-center py-10">Loading...</div>; // or a spinner
     }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const newEvent = Object.fromEntries(formData.entries())
+        // console.log(newEvent);
+
+        axios.post("http://localhost:3000/events", newEvent)
+            .then(res => {
+
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Event Added Successfully!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+                const errorMessage = err.message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${errorMessage}`,
+
+                });
+            })
+    }
+
     return (
         <div className='my-10 p-10 rounded-3xl w-10/11  lg:w-2/3 mx-auto border-2 border-blue-900'>
 
@@ -17,7 +54,7 @@ const CreateEvent = () => {
                 </p>
             </div>
             <div>
-                <form >
+                <form onSubmit={handleSubmit}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         {/* Event Name */}
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
