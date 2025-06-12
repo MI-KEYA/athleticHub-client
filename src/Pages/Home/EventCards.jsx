@@ -18,7 +18,7 @@ const EventCards = ({ events }) => {
                 <h2 className="card-title">{eventname}</h2>
                 <p>{description}</p>
                 <div className="card-actions">
-                    <Link to={`http://localhost:3000/${_id}`} className='btn bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full hidden lg:flex'>Details</Link>
+                    <Link to={`http://localhost:3000/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-full hidden lg:flex'>Details</Link>
                 </div>
             </div>
         </div>

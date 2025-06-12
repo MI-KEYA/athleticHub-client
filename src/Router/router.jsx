@@ -3,7 +3,6 @@ import {
     createBrowserRouter,
 } from "react-router";
 import MainLayout from '../Layouts/MainLayout';
-import Home from '../Pages/Home';
 import BookEvent from '../Components/BookEvent';
 import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../Pages/Login';
@@ -12,6 +11,7 @@ import MyBookings from '../Components/MyBookings';
 import ManageEvents from '../Components/ManageEvents';
 import CreateEvent from '../Components/CreateEvent';
 import Error from '../Pages/Error';
+import Home from '../Pages/Home/Home';
 
 const router = createBrowserRouter([
     {

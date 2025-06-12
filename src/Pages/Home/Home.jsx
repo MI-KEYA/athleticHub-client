@@ -1,9 +1,17 @@
-import React from 'react';
-import Header from '../Components/Header';
-import Hero from '../Components/Hero';
+import React, { Suspense, useEffect, useState } from 'react';
+
+
 import { motion } from "motion/react";
+import Hero from './Hero';
+import Events from './Events';
 
 const Home = () => {
+    const [events, setEvents] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:3000/events')
+            .then(res => res.json())
+            .then(data => setEvents(data))
+    }, [])
     return (
         <div className=' w-2/3 mx-auto mb-10'>
             <motion.h1
@@ -21,6 +29,9 @@ const Home = () => {
             </motion.h1>
 
             <Hero />
+            <Suspense fallback={"loading.."}>
+                <Events events={events} />
+            </Suspense>
         </div>
     );
 };
