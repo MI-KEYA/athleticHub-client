@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const EventCards = ({ events }) => {
     const { _id, eventname, description, photo, eventdate } = events
-    console.log(eventname);
+    // console.log(eventname);
     return (
 
         <div className="card bg-base-100  shadow-sm">

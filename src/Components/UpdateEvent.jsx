@@ -1,10 +1,41 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpdateEvent = () => {
     const eventData = useLoaderData();
-    const { event, eventname, photo, description, username, useremail, eventdate } = eventData;
-    console.log(event);
+    const { _id, event, eventname, photo, description, username, useremail, eventdate } = eventData;
+    // console.log(event);
+    const navigate = useNavigate()
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const updateEvent = Object.fromEntries(formData.entries());
+
+        fetch(`http://localhost:3000/events/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateEvent)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: "Event Updated Successfully!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                console.log(data);
+                navigate('/manageEvents')
+            })
+    }
+
     return (
         <div className='my-10 p-10 rounded-3xl w-10/11  lg:w-2/3 mx-auto border-2 border-blue-900'>
 
@@ -13,7 +44,7 @@ const UpdateEvent = () => {
 
             </div>
             <div>
-                <form >
+                <form onSubmit={handleUpdate}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         {/* Event Name */}
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
@@ -66,7 +97,7 @@ const UpdateEvent = () => {
                             placeholder="PhotoURL" />
                     </fieldset>
                     <input type="submit" className='btn text-white  hover:bg-blue-900 bg-blue-950 
-                                w-full' name="" value='Add Event' />
+                                w-full' name="" value='Update Event' />
                 </form>
             </div>
         </div>

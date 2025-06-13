@@ -2,7 +2,7 @@ import React from 'react';
 import EventCards from './EventCards';
 
 const Events = ({ events }) => {
-    console.log(events);
+    // console.log(events);
     return (
         <div className='my-10'>
             <h2 className='text-center font-bold  text-3xl'>Events</h2>
