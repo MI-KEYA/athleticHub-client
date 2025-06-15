@@ -1,49 +1,39 @@
 import React from 'react';
-import slider1 from '../../assets/slider1.png';
-import slider2 from '../../assets/slider2.png';
-import slider3 from '../../assets/slider3.png';
-import slider4 from '../../assets/slider4.png';
 
+const Hero = ({ images = [] }) => {
+    // fallback to default static images if dynamic ones aren't passed
+    const defaultImages = [
+        '/assets/slider1.png',
+        '/assets/slider2.png',
+        '/assets/slider3.png',
+        '/assets/slider4.png'
+    ];
 
-const Hero = () => {
+    const slides = images.length > 0 ? images : defaultImages;
+
     return (
-        <div className="carousel w-full mb-10">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img
-                    src={slider1}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
+        <div className="carousel w-full mb-10 rounded-xl h-[300px]">
+            {slides.map((img, index) => (
+                <div
+                    key={index}
+                    id={`slide${index}`}
+                    className="carousel-item relative w-full"
+                >
+                    <img
+                        src={img}
+                        alt={`Slide ${index + 1}`}
+                        className="w-full object-cover h-full"
+                    />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href={`#slide${(index - 1 + slides.length) % slides.length}`} className="btn btn-circle">
+                            ❮
+                        </a>
+                        <a href={`#slide${(index + 1) % slides.length}`} className="btn btn-circle">
+                            ❯
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img
-                    src={slider2}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img
-                    src={slider3}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide4" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-                <img
-                    src={slider4}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
-            </div>
+            ))}
         </div>
     );
 };

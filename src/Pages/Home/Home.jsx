@@ -14,10 +14,9 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setEvents(data))
     }, [])
-    const featuredEvents = [...events]
-        .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate))
-        .slice(0, 6);
-
+    const sortedEvents = [...events].sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+    const featuredEvents = sortedEvents.slice(0, 6);
+    const heroImages = sortedEvents.slice(0, 3).map(event => event.photo);
     return (
         <div className=' lg:w-2/3 mx-auto mb-10'>
             <motion.h1
@@ -34,7 +33,7 @@ const Home = () => {
                     the Athlete</motion.span>  in You!
             </motion.h1>
 
-            <Hero />
+            <Hero images={heroImages} />
             <Suspense fallback={"loading.."}>
                 <Events events={featuredEvents} />
 
