@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { MdOutlineBookmarkBorder } from "react-icons/md";
+import { MdOutlineAccessTime, MdOutlineBookmarkBorder, MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from "react-icons/md";
+
 
 
 const EventDetails = () => {
@@ -16,7 +17,7 @@ const EventDetails = () => {
     }, [id])
 
     const {
-        event, eventname, description, eventdate, photo
+        event, eventname, description, photo, datetime, location
     } = events
 
 
@@ -30,16 +31,35 @@ const EventDetails = () => {
                 <img
                     src={photo}
                     alt="event"
-                    className="rounded-xl w-[300px]" />
+                    className="rounded-xl " />
             </figure>
-            <div className="lg:pt-10 lg:pr-10">
-                <div className='flex flex-col items-center gap-4'>
+            <div className="lg:pt-10 lg:pr-10 p-5">
+                <div className='flex flex-col  gap-4'>
                     <h2 className="card-title font-bold text-blue-950 text-2xl">{eventname}</h2>
-                    <p className='text-center text-gray-500'>{description}</p>
-                    <div className="badge badge-outline badge-primary">Event-Date: {eventdate}</div>
-                    <div className="badge badge-outline badge-primary">Event: {event}</div>
+                    <p className=' text-gray-500'>{description}</p>
+
+                    <p className='flex items-center gap-1'><MdOutlineEmojiEvents /> {event}</p>
+                    <p className='flex items-center gap-1'><MdOutlineLocationOn /> {location}</p>
+                    <p className='flex items-center gap-1'>
+                        <MdOutlineEditCalendar />
+                        {new Date(datetime).toLocaleDateString('en-US', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        })}
+                    </p>
+                    <p className='flex items-center gap-1'>
+                        <MdOutlineAccessTime />
+                        {new Date(datetime).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true
+                        })}
+                    </p>
+
                 </div>
-                <div className="flex justify-center gap-4 mt-10 pb-5">
+                <div className="flex  gap-4 mt-10 pb-5">
 
                     <button className='btn flex-end mt-3 bg-blue-950 text-white rounded-full  lg:flex'><MdOutlineBookmarkBorder />Booking</button>
                 </div>

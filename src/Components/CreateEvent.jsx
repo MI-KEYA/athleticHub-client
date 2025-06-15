@@ -18,6 +18,12 @@ const CreateEvent = () => {
         const newEvent = Object.fromEntries(formData.entries())
         // console.log(newEvent);
 
+        const eventDate = formData.get('eventdate');
+        const eventTime = formData.get('eventtime');
+
+        const combinedDateTime = new Date(`${eventDate}T${eventTime}:00`);
+        newEvent.datetime = combinedDateTime.toISOString();
+
         axios.post("http://localhost:3000/events", newEvent)
             .then(res => {
 
@@ -71,6 +77,8 @@ const CreateEvent = () => {
                                 <option value="Sprinting">Sprinting</option>
                                 <option value="Long Jump">Long Jump</option>
                                 <option value="High Jump">High Jump</option>
+                                <option value="Football">Football</option>
+                                <option value="Cricket">Cricket</option>
                                 <option value="Hurdle Race">Hurdle Race</option>
                             </select>
                         </fieldset>
@@ -85,6 +93,15 @@ const CreateEvent = () => {
                             <label className="label">Event Date</label>
                             <input type="date" name='eventdate' className="input w-full"
                                 placeholder="Event Date" />
+                        </fieldset>
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Location</label>
+                            <input type="text" name='location' className="input w-full"
+                                placeholder="Event Location" />
+                        </fieldset>
+                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                            <label className="label">Event Time</label>
+                            <input type="time" name='eventtime' className="input w-full" placeholder="Event Time" />
                         </fieldset>
                         {/* creator detail */}
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
