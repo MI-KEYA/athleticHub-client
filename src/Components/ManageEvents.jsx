@@ -18,7 +18,7 @@ const ManageEvents = () => {
                         <tr>
                             <th>#</th>
                             <th>Event Name</th>
-                            <th>Job</th>
+                            <th>Event</th>
                             <th>Action</th>
                         </tr>
                     </thead>

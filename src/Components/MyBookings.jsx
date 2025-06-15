@@ -1,29 +1,52 @@
-import React, { Suspense, useContext } from 'react';
-import { AuthContext } from '../Context/AuthContext';
-import MyBookingList from './MyBookingList';
-
-const mybookingsPromise = email => {
-    return fetch(`http://localhost:3000/events?enail=${email}`)
-        .then(res => res.json())
-}
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import { AuthContext } from '../Context/AuthContext'; // Update path if needed
+import { MdOutlineEditCalendar, MdOutlineAccessTime } from "react-icons/md";
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
-    // const [bookings, setBookings] = useState([]);
+    const [bookings, setBookings] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // useEffect(()=>{
-    //     if(user && user.email)
+    useEffect(() => {
+        if (!user?.email) return;
 
+        axios.get(`http://localhost:3000/bookings?useremail=${user.email}`)
+            .then(res => {
+                setBookings(res.data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching bookings", err);
+                setLoading(false);
+            });
+    }, [user]);
 
-    // },[])
+    if (loading) return <div className="text-center py-10">Loading your bookings...</div>;
+
+    if (bookings.length === 0) return <div className="text-center py-10 text-gray-500">No events booked yet.</div>;
+
     return (
-        <div>
-            <Suspense fallback={"Loading...."}>
-                <MyBookingList
-                    mybookingsPromise={mybookingsPromise(user.email)}>
-
-                </MyBookingList>
-            </Suspense>
+        <div className="max-w-4xl mx-auto p-4">
+            <h2 className="text-2xl font-bold mb-6 text-blue-950">My Booked Events</h2>
+            <div className="grid gap-6 lg:grid-cols-2">
+                {bookings.map((booking, idx) => (
+                    <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
+                        <img src={booking.photo} alt={booking.eventname} className="w-full h-48 object-cover" />
+                        <div className="p-4 space-y-2">
+                            <h3 className="text-xl font-semibold text-blue-900">{booking.eventname}</h3>
+                            <div className="flex items-center gap-2 text-gray-600">
+                                <MdOutlineEditCalendar />
+                                {new Date(booking.datetime).toLocaleDateString()}
+                            </div>
+                            <div className="flex items-center gap-2 text-gray-600">
+                                <MdOutlineAccessTime />
+                                {new Date(booking.datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

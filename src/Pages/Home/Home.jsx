@@ -18,12 +18,12 @@ const Home = () => {
     const featuredEvents = sortedEvents.slice(0, 6);
     const heroImages = sortedEvents.slice(0, 3).map(event => event.photo);
     return (
-        <div className=' lg:w-2/3 mx-auto mb-10'>
+        <div className=' lg:w-2/3 mx-auto my-10'>
             <motion.h1
 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1, transition: { duration: 4 } }}
-                className="text-3xl font-bold text-center my-10">Unleash <motion.span
+                className="text-3xl font-bold text-center mt-20 mb-10">Unleash <motion.span
                     animate={
                         {
                             color: ["#CC6CE7", "#5DE2E7", "#EFC3CA"],

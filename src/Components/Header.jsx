@@ -144,6 +144,23 @@ const Header = () => {
                         AthleticHub</motion.span>
                 </motion.h1>
                 <p className="text-lg font-semibold text-blue-800 mt-4">Be one of us.</p>
+                <div className="mt-8">
+                    <form className="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <input
+                            type="text"
+                            placeholder="Search for events..."
+                            className="input input-bordered w-[300px] max-w-xs text-blue-900 rounded-full"
+                            name="search"
+                        />
+                        <button
+                            type="submit"
+                            className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full"
+                        >
+                            Search
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </div>
     );
