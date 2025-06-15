@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import BookEventList from './BookEventList';
+import BookEventList from '../BookEventList';
 
 const BookEvent = () => {
     const eventData = useLoaderData()

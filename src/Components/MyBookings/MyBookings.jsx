@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../Context/AuthContext'; // Update path if needed
-import { MdOutlineEditCalendar, MdOutlineAccessTime } from "react-icons/md";
+import { AuthContext } from '../../Context/AuthContext';
+import { MdOutlineEditCalendar, MdOutlineAccessTime, MdOutlineDelete } from "react-icons/md";
+import Swal from 'sweetalert2';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
@@ -26,6 +27,36 @@ const MyBookings = () => {
 
     if (bookings.length === 0) return <div className="text-center py-10 text-gray-500">No events booked yet.</div>;
 
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/bookings/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(() => {
+                        setBookings(prev => prev.filter(booking => booking._id !== _id));
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    })
+
+                const remainingEvents = bookings.filter(updatedEv => updatedEv._id !== _id)
+                setBookings(remainingEvents)
+
+            }
+        });
+    }
+
     return (
         <div className="max-w-4xl mx-auto p-4">
             <h2 className="text-2xl font-bold mb-6 text-blue-950">My Booked Events</h2>
@@ -43,10 +74,18 @@ const MyBookings = () => {
                                 <MdOutlineAccessTime />
                                 {new Date(booking.datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
+                            <button
+                                onClick={() => handleDelete(booking._id)}
+                                className='btn mt-3 border border-blue-950 text-blue-950 rounded-full flex items-center gap-1'>
+                                <MdOutlineDelete />
+                                Delete
+                            </button>
                         </div>
                     </div>
                 ))}
+
             </div>
+
         </div>
     );
 };

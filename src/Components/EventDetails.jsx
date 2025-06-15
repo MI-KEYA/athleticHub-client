@@ -122,7 +122,7 @@ const EventDetails = () => {
                     <p className="text-gray-500 mt-5">Added By: {event.username}</p>
                 </div>
 
-                <div className="flex gap-4 pt-5">
+                <div className="flex gap-4 pt-2">
                     <button
                         onClick={handleBooking}
                         disabled={isBooked}

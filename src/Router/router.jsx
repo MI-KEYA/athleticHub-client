@@ -3,11 +3,11 @@ import {
     createBrowserRouter,
 } from "react-router";
 import MainLayout from '../Layouts/MainLayout';
-import BookEvent from '../Components/BookEvent';
+import BookEvent from '../Components/BookEvent/BookEvent';
 import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
-import MyBookings from '../Components/MyBookings';
+import MyBookings from '../Components/MyBookings/MyBookings';
 import ManageEvents from '../Components/ManageEvents';
 import CreateEvent from '../Components/CreateEvent';
 import Error from '../Pages/Error';

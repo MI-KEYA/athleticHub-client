@@ -1,9 +1,9 @@
 import React from 'react';
-import { MdOutlineBookmarkBorder } from 'react-icons/md';
 import { Link } from 'react-router';
 
 const BookEventList = ({ eventdata, index }) => {
-    const { event, eventname, photo } = eventdata
+    const { _id, event, eventname, photo } = eventdata
+
     return (
         <tr>
             <th>
@@ -33,7 +33,7 @@ const BookEventList = ({ eventdata, index }) => {
 
                 <div className="flex  gap-4 mt-2 pb-5">
 
-                    <button className='btn flex-end mt-3 bg-blue-950 text-white rounded-full  lg:flex'><MdOutlineBookmarkBorder />Booking</button>
+                    <Link to={`/events/${_id}`} className='btn rounded-full bg-blue-950 text-white'>Details</Link>
                 </div>
 
 
