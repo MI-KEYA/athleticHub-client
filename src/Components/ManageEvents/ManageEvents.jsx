@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import ManageEventList from './ManageEventList';
+import { AuthContext } from '../../Context/AuthContext';
 import { useLoaderData } from 'react-router';
-import { AuthContext } from '../Context/AuthContext';
 
 const ManageEvents = () => {
     const initialEventData = useLoaderData();

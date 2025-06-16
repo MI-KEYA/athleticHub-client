@@ -1,6 +1,6 @@
 import React from 'react';
-import Navber from '../Components/Navber';
 import { Outlet } from 'react-router';
+import Navber from '../Components/Navbar/Navber';
 
 const AuthLayout = () => {
     return (

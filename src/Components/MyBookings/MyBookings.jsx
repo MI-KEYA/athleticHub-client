@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../Context/AuthContext';
 import { MdOutlineEditCalendar, MdOutlineAccessTime, MdOutlineDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
@@ -74,12 +75,18 @@ const MyBookings = () => {
                                 <MdOutlineAccessTime />
                                 {new Date(booking.datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
-                            <button
-                                onClick={() => handleDelete(booking._id)}
-                                className='btn mt-3 border border-blue-950 text-blue-950 rounded-full flex items-center gap-1'>
-                                <MdOutlineDelete />
-                                Delete
-                            </button>
+                            <div className='flex gap-5 items-center mt-3'>
+                                <button
+                                    onClick={() => handleDelete(booking._id)}
+                                    className='btn  border border-blue-950 text-blue-950 rounded-full flex items-center gap-1'>
+                                    <MdOutlineDelete />
+                                    Delete
+                                </button>
+
+
+                                <Link to={`/events/${booking.eventId}`} className='btn  border border-blue-950 text-blue-950 rounded-full '>Details</Link>
+                            </div>
+
                         </div>
                     </div>
                 ))}

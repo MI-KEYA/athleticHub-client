@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { MdOutlineAccessTime, MdOutlineBookmarkBorder, MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from "react-icons/md";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { AuthContext } from '../Context/AuthContext';  // Adjust path to your AuthContext
+import { AuthContext } from '../Context/AuthContext';
 
 const EventDetails = () => {
     const { id } = useParams();
@@ -12,6 +12,7 @@ const EventDetails = () => {
     const [event, setEvent] = useState(null);
     const [isBooked, setIsBooked] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [totalBookings, setTotalBookings] = useState(0);
 
     // Fetch event details
     useEffect(() => {
@@ -27,18 +28,24 @@ const EventDetails = () => {
             });
     }, [id]);
 
-    // Check if user already booked this event
+    // Fetch total bookings and check if user booked
     useEffect(() => {
-        if (!user || !event?._id) return;
+        if (!event?._id) return;
 
-        axios.get(`http://localhost:3000/bookings?eventId=${event._id}&useremail=${user.email}`)
+        axios.get('http://localhost:3000/bookings')
             .then(res => {
-                setIsBooked(res.data.length > 0);
+                const eventBookings = res.data.filter(b => b.eventId === event._id);
+                setTotalBookings(eventBookings.length);
+
+                if (user) {
+                    const userBooked = eventBookings.find(b => b.useremail === user.email);
+                    setIsBooked(!!userBooked);
+                }
             })
             .catch(err => {
-                console.error("Error checking booking:", err);
+                console.error("Error fetching bookings:", err);
             });
-    }, [user, event]);
+    }, [event, user]);
 
     // Handle booking
     const handleBooking = () => {
@@ -69,6 +76,7 @@ const EventDetails = () => {
                         timer: 1500
                     });
                     setIsBooked(true);
+                    setTotalBookings(prev => prev + 1); // increment total bookings
                 }
             })
             .catch(err => {
@@ -82,7 +90,6 @@ const EventDetails = () => {
     };
 
     if (loading) return <div className="text-center py-10">Loading event details...</div>;
-
     if (!event) return <div className="text-center py-10 text-red-500">Event not found.</div>;
 
     return (
@@ -119,7 +126,13 @@ const EventDetails = () => {
                         })}
                     </p>
 
-                    <p className="text-gray-500 mt-5">Added By: {event.username}</p>
+                    <p className="text-gray-500">Added By: {event.username}</p>
+
+                    {/* ✅ Total bookings */}
+                    <p className="flex items-center text-blue-600 gap-1 ">
+                        <MdOutlineBookmarkBorder />
+                        {totalBookings} Booking{totalBookings !== 1 && 's'}
+                    </p>
                 </div>
 
                 <div className="flex gap-4 pt-2">

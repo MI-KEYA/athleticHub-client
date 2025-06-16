@@ -1,5 +1,7 @@
 import React from 'react';
 import EventCards from './EventCards';
+import { Link } from 'react-router';
+import { MdOutlineReadMore } from 'react-icons/md';
 
 const Events = ({ events }) => {
     // console.log(events);
@@ -15,6 +17,9 @@ const Events = ({ events }) => {
                     </EventCards>)
                 }
             </div>
+            <Link to='/bookEvent' className='btn flex justify-center items-center rounded-full w-1/5 mx-auto bg-blue-950 text-white '>
+                See More<MdOutlineReadMore className='text-xl' />
+            </Link>
         </div>
     );
 };

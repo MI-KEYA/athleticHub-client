@@ -8,7 +8,7 @@ import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import MyBookings from '../Components/MyBookings/MyBookings';
-import ManageEvents from '../Components/ManageEvents';
+
 import CreateEvent from '../Components/CreateEvent';
 import Error from '../Pages/Error';
 import Home from '../Pages/Home/Home';
@@ -16,6 +16,7 @@ import PrivateRoute from '../Context/PrivateRoute';
 import EventDetails from '../Components/EventDetails';
 import Loading from '../Components/Loading';
 import UpdateEvent from '../Components/UpdateEvent';
+import ManageEvents from '../Components/ManageEvents/ManageEvents';
 
 const router = createBrowserRouter([
     {

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
 import { motion } from "motion/react"
-import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import userIcon from '/user.png';
-import Loading from './Loading';
+import { AuthContext } from '../../Context/AuthContext';
+import Loading from '../Loading';
 
 const Header = () => {
     const { user, logOut, loading } = useContext(AuthContext);

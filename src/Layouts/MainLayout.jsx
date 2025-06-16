@@ -2,8 +2,9 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router';
 
 import Footer from '../Components/Footer';
-import Header from '../Components/Header';
-import Navber from '../Components/Navber';
+import Navber from '../Components/Navbar/Navber';
+import Header from '../Components/Navbar/Header';
+
 
 const MainLayout = () => {
     const location = useLocation();

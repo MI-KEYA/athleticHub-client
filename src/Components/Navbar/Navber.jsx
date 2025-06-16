@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
-import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import userIcon from '/user.png';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Navber = () => {
 
