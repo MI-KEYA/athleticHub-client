@@ -13,7 +13,7 @@ const EventCards = ({ events }) => {
                 <img
                     src={photo}
                     alt="event"
-                    className="rounded-xl " />
+                    className="rounded-xl h-[200px]" />
             </figure>
             <div className="card-body ">
                 <h2 className="card-title">{eventname}</h2>
@@ -21,7 +21,7 @@ const EventCards = ({ events }) => {
                 <p className='flex items-center gap-1 text-gray-500 '><MdOutlineEditCalendar /> {eventdate}</p>
                 <p className='flex items-center gap-1 text-gray-500 '><MdOutlineLocationOn /> {location}</p>
 
-                <Link to={`events/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-900 to-blue-200 text-white rounded-full  lg:flex'>Details</Link>
+                <Link to={`events/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-900 to-blue-300 text-white rounded-full  lg:flex'>Details</Link>
             </div>
         </div>
 

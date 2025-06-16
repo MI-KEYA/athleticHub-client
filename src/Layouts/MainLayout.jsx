@@ -10,7 +10,7 @@ const MainLayout = () => {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
     return (
-        <div>
+        <div className='bg-blue-50'>
             <header>
                 {
                     isHomePage ? <Header /> : <Navber />

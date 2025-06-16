@@ -63,13 +63,13 @@ const CreateEvent = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         {/* Event Name */}
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Event Name</label>
                             <input type="text" name='eventname' className="input w-full"
                                 placeholder="Event Name" />
                         </fieldset>
                         {/* Event Type */}
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Event Type</label>
                             <select name='event' className="input w-full">
                                 <option value="">Select Event Type</option>
@@ -83,40 +83,40 @@ const CreateEvent = () => {
                             </select>
                         </fieldset>
                         {/* description */}
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Description</label>
                             <input type="text" name='description' className="input w-full"
                                 placeholder="Description" />
                         </fieldset>
                         {/* event Date */}
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Event Date</label>
                             <input type="date" name='eventdate' className="input w-full"
                                 placeholder="Event Date" />
                         </fieldset>
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Location</label>
                             <input type="text" name='location' className="input w-full"
                                 placeholder="Event Location" />
                         </fieldset>
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Event Time</label>
                             <input type="time" name='eventtime' className="input w-full" placeholder="Event Time" />
                         </fieldset>
                         {/* creator detail */}
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Creator Email</label>
                             <input type="text" name='useremail' className="input w-full" defaultValue={user.email}
                                 placeholder="Creator Email" />
                         </fieldset>
-                        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border p-4">
                             <label className="label">Creator Name</label>
                             <input type="text" name='username' className="input w-full" defaultValue={user.displayName}
                                 placeholder="Creator Name" />
                         </fieldset>
                     </div>
                     {/* photourl */}
-                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
+                    <fieldset className="fieldset bg-slate-100 border-base-300 rounded-box border my-6 p-4">
                         <label className="label">Event PhotoURL</label>
                         <input type="text" name='photo' className="input w-full"
                             placeholder="PhotoURL" />

@@ -4,6 +4,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { motion } from "motion/react";
 import Hero from './Hero';
 import Events from './Events';
+import ExtraSection from './ExtraSection';
 
 const Home = () => {
     const [events, setEvents] = useState([])
@@ -18,7 +19,7 @@ const Home = () => {
     const featuredEvents = sortedEvents.slice(0, 6);
     const heroImages = sortedEvents.slice(0, 3).map(event => event.photo);
     return (
-        <div className=' lg:w-2/3 mx-auto my-10'>
+        <div className=' lg:w-2/3 mx-auto my-10 '>
             <motion.h1
 
                 initial={{ scale: 0 }}
@@ -38,6 +39,7 @@ const Home = () => {
                 <Events events={featuredEvents} />
 
             </Suspense>
+            <ExtraSection />
         </div>
     );
 };

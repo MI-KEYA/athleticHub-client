@@ -1,16 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import BookEventList from './BookEventList';
 
-
 const BookEvent = () => {
-    const eventData = useLoaderData()
-    // console.log(eventData)
+    const eventData = useLoaderData();
+    const [searchText, setSearchText] = useState('');
+    const [filteredEvents, setFilteredEvents] = useState([]);
+
+    useEffect(() => {
+        setFilteredEvents(eventData); // initialize on load
+    }, [eventData]);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        const filtered = eventData.filter(event =>
+            event.eventname.toLowerCase().includes(searchText.toLowerCase()) ||
+            (event.location && event.location.toLowerCase().includes(searchText.toLowerCase()))
+        );
+
+        setFilteredEvents(filtered);
+    };
 
     return (
         <div>
-            <h1 className='text-center text-3xl font-semibold text-blue-950 my-10'>Book Your Prefered Event</h1>
+            <h1 className='text-center text-3xl font-semibold text-blue-950 my-10'>
+                Book Your Preferred Event
+            </h1>
+
             <div className="w-full px-2 lg:w-2/3 lg:mx-auto my-5">
+                <div className="my-8">
+                    <form
+                        className="flex flex-col md:flex-row items-center justify-center gap-4"
+                        onSubmit={handleSearch}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Search by event name or location..."
+                            className="input input-bordered w-[300px] max-w-xs text-blue-900 rounded-full"
+                            value={searchText}
+                            onChange={e => setSearchText(e.target.value)}
+                        />
+                        <button
+                            type="submit"
+                            className="btn bg-gradient-to-r from-blue-900 to-blue-400 text-white rounded-full"
+                        >
+                            Search
+                        </button>
+                    </form>
+                </div>
+
                 <div className="overflow-x-auto rounded-lg shadow">
                     <table className="table w-full text-sm">
                         <thead className="bg-blue-950 text-white">
@@ -22,13 +61,21 @@ const BookEvent = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                eventData.map((eventdata, index) => (<BookEventList
-                                    eventdata={eventdata}
-                                    index={index}
-                                    key={eventdata._id}
-                                />))
-                            }
+                            {filteredEvents.length > 0 ? (
+                                filteredEvents.map((eventdata, index) => (
+                                    <BookEventList
+                                        key={eventdata._id}
+                                        index={index}
+                                        eventdata={eventdata}
+                                    />
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="4" className="text-center py-4 text-gray-500">
+                                        No matching events found.
+                                    </td>
+                                </tr>
+                            )}
                         </tbody>
                     </table>
                 </div>
