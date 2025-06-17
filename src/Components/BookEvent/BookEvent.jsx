@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import BookEventList from './BookEventList';
+import { Helmet } from 'react-helmet';
 
 const BookEvent = () => {
     const eventData = useLoaderData();
@@ -24,6 +25,7 @@ const BookEvent = () => {
 
     return (
         <div>
+            <Helmet><title>AthleticHub | All Events</title></Helmet>
             <h1 className='text-center text-3xl font-semibold text-blue-950 my-10'>
                 Book Your Preferred Event
             </h1>

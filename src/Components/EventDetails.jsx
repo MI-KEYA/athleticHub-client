@@ -4,6 +4,7 @@ import { MdOutlineAccessTime, MdOutlineBookmarkBorder, MdOutlineEditCalendar, Md
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const EventDetails = () => {
     const { id } = useParams();
@@ -94,6 +95,7 @@ const EventDetails = () => {
 
     return (
         <div className="bg-base-100 lg:w-2/3 mx-auto lg:flex shadow-sm my-10 rounded-lg border border-gray-200">
+            <Helmet><title>AthleticHub | EventDetails</title></Helmet>
             <figure className="px-10 py-10 lg:w-1/2">
                 <img
                     src={event.photo}

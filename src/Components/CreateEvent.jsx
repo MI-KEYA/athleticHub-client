@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const CreateEvent = () => {
     const { user, loading } = useContext(AuthContext)
@@ -51,7 +52,7 @@ const CreateEvent = () => {
 
     return (
         <div className='my-10 p-10 rounded-3xl w-10/11  lg:w-2/3 mx-auto border-2 border-blue-900'>
-
+            <Helmet><title>AthleticHub | CreateEvent</title></Helmet>
             <div className='mb-10 text-center text-blue-950 space-y-4'>
                 <h2 className='lg:text-6xl text-3xl font-semibold'>Add Event</h2>
                 <p className='font-semibold'>Ready to host your next athletic event?</p>

@@ -5,6 +5,7 @@ import Lottie from 'lottie-react';
 import loginLottie from '../assets/signIn.json'
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 
 const Login = () => {
@@ -67,6 +68,7 @@ const Login = () => {
     return (
 
         <div className="hero  lg:mt-10">
+            <Helmet><title>AthleticHub | Login</title></Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <Lottie style={{ width: '300px' }} animationData={loginLottie} loop={true}></Lottie>

@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import ManageEventList from './ManageEventList';
 import { AuthContext } from '../../Context/AuthContext';
 import { useLoaderData } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const ManageEvents = () => {
     const initialEventData = useLoaderData();
@@ -12,6 +13,7 @@ const ManageEvents = () => {
 
     return (
         <div className="w-full px-2 lg:w-2/3 lg:mx-auto my-5">
+            <Helmet><title>AthleticHub | ManageEvent</title></Helmet>
             <div className="overflow-x-auto rounded-lg shadow">
                 <table className="table w-full text-sm">
                     <thead className="bg-blue-950 text-white">

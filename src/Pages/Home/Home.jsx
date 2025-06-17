@@ -5,6 +5,8 @@ import { motion } from "motion/react";
 import Hero from './Hero';
 import Events from './Events';
 import ExtraSection from './ExtraSection';
+import MostBookedEvents from './MostBookedEvents';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const [events, setEvents] = useState([])
@@ -20,6 +22,7 @@ const Home = () => {
     const heroImages = sortedEvents.slice(0, 3).map(event => event.photo);
     return (
         <div className=' lg:w-2/3 mx-auto my-10 '>
+            <Helmet><title>AthleticHub | Home</title></Helmet>
             <motion.h1
 
                 initial={{ scale: 0 }}
@@ -39,6 +42,7 @@ const Home = () => {
                 <Events events={featuredEvents} />
 
             </Suspense>
+            <MostBookedEvents />
             <ExtraSection />
         </div>
     );

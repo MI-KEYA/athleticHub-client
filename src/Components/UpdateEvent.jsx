@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -47,6 +48,7 @@ const UpdateEvent = () => {
 
     return (
         <div className='my-10 p-10 rounded-3xl w-10/11 lg:w-2/3 mx-auto border-2 border-blue-900'>
+            <Helmet><title>AthleticHub | UpdateEvent</title></Helmet>
             <div className='mb-10 text-center text-blue-950 space-y-4'>
                 <h2 className='lg:text-6xl text-3xl font-semibold'>Update Event</h2>
             </div>

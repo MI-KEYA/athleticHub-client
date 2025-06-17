@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { createUser, setUser, signInWithGoogle, updateUser } = use(AuthContext);
@@ -85,7 +86,7 @@ const Register = () => {
 
     return (
         <div className='flex justify-center items-center pt-10'>
-
+            <Helmet><title>AthleticHub | Register</title></Helmet>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
 
                 <form onSubmit={handleSignUp} className="card-body">
