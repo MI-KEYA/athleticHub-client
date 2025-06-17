@@ -5,6 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
 import { Helmet } from 'react-helmet';
+import Loading from './Loading';
 
 const EventDetails = () => {
     const { id } = useParams();
@@ -90,7 +91,7 @@ const EventDetails = () => {
             });
     };
 
-    if (loading) return <div className="text-center py-10">Loading event details...</div>;
+    if (loading) return <Loading />;
     if (!event) return <div className="text-center py-10 text-red-500">Event not found.</div>;
 
     return (

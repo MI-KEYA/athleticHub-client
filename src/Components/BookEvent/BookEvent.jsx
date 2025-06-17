@@ -1,27 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { useLoaderData } from 'react-router';
 import BookEventList from './BookEventList';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../../Context/AuthContext';
+import Loading from '../Loading';
 
 const BookEvent = () => {
-    const eventData = useLoaderData();
+    const [events, setEvents] = useState([])
+    const [loading, setLoading] = useState(true)
     const [searchText, setSearchText] = useState('');
     const [filteredEvents, setFilteredEvents] = useState([]);
 
     useEffect(() => {
-        setFilteredEvents(eventData); // initialize on load
-    }, [eventData]);
+
+        fetch('http://localhost:3000/events')
+            .then(res => res.json())
+            .then(data => {
+                setEvents(data);
+                setFilteredEvents(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching events:", error);
+                setLoading(false);
+            });
+    }, []);
 
     const handleSearch = (e) => {
         e.preventDefault();
-
-        const filtered = eventData.filter(event =>
+        const filtered = events.filter(event =>
             event.eventname.toLowerCase().includes(searchText.toLowerCase()) ||
             (event.location && event.location.toLowerCase().includes(searchText.toLowerCase()))
         );
-
         setFilteredEvents(filtered);
     };
+
+    if (loading) {
+        return <Loading />
+    }
 
     return (
         <div>

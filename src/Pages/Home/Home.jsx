@@ -42,7 +42,7 @@ const Home = () => {
                 <Events events={featuredEvents} />
 
             </Suspense>
-            <MostBookedEvents />
+
             <ExtraSection />
         </div>
     );

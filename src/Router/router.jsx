@@ -41,8 +41,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <BookEvent />
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:3000/events'),
-                hydrateFallbackElement: <Loading />
+
             },
             {
                 path: '/myBookings',
