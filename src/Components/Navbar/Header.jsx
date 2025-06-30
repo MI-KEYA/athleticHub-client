@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import Swal from 'sweetalert2';
 import userIcon from '/user.png';
 import { AuthContext } from '../../Context/AuthContext';
+import icon from '../../assets/R.png'
 import Loading from '../Loading';
 
 const Header = () => {
@@ -71,15 +72,8 @@ const Header = () => {
 
 
     return (
-        <div
-            className="min-h-screen"
-            style={{
-                backgroundImage: "url('/bg.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-            }}
-        >
+        <div>
+
             <div className="navbar shadow-sm bg-transparent">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -96,7 +90,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className='flex justify-center'>
-                        <img src="/public/R.png" alt="" className='w-[50px] lg:ml-5' />
+                        <img src={icon} alt="" className='w-[50px] lg:ml-5' />
                         <a className="btn btn-ghost hidden lg:flex text-xl">AthleticHub</a>
                     </div>
                 </div>
@@ -127,26 +121,6 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* You can add hero content here if needed */}
-            <div className="flex flex-col justify-center items-center text-center text-white h-[calc(100vh-64px)]">
-
-                <motion.h1
-
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1, transition: { duration: 4 } }}
-                    className="text-5xl text-blue-300 font-bold text-center my-10">Welcome to <motion.span
-                        animate={
-                            {
-                                color: ["#3B82F6", "#8B5CF6", "#EC4899"],
-                                transition: { duration: 4, repeat: Infinity }
-                            }
-                        }>
-                        AthleticHub</motion.span>
-                </motion.h1>
-                <p className="text-lg font-semibold text-blue-800 mt-4">Be one of us.</p>
-
-
-            </div>
         </div>
     );
 };

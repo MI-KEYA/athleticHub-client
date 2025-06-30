@@ -19,7 +19,7 @@ const ManageEventList = ({ events, index, eventData, setEventData }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/events/${_id}`, {
+                fetch(`https://athletic-hub-server-tawny.vercel.app/events/${_id}`, {
                     method: 'DELETE',
 
                 })

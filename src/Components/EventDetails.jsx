@@ -19,7 +19,7 @@ const EventDetails = () => {
     // Fetch event details
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:3000/events/${id}`)
+        axios.get(`https://athletic-hub-server-tawny.vercel.app/events/${id}`)
             .then(res => {
                 setEvent(res.data);
                 setLoading(false);
@@ -34,7 +34,7 @@ const EventDetails = () => {
     useEffect(() => {
         if (!event?._id) return;
 
-        axios.get('http://localhost:3000/bookings')
+        axios.get('https://athletic-hub-server-tawny.vercel.app/bookings')
             .then(res => {
                 const eventBookings = res.data.filter(b => b.eventId === event._id);
                 setTotalBookings(eventBookings.length);
@@ -68,7 +68,7 @@ const EventDetails = () => {
             username: user.displayName || "Anonymous"
         };
 
-        axios.post('http://localhost:3000/bookings', newBooking)
+        axios.post('https://athletic-hub-server-tawny.vercel.app/bookings', newBooking)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

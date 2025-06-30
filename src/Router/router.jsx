@@ -17,6 +17,8 @@ import EventDetails from '../Components/EventDetails';
 import Loading from '../Components/Loading';
 import UpdateEvent from '../Components/UpdateEvent';
 import ManageEvents from '../Components/ManageEvents/ManageEvents';
+import Dashboard from '../Components/Dashboard/Dashboard';
+import Profile from '../Components/Profile/Profile';
 
 const router = createBrowserRouter([
     {
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/manageEvents',
-                loader: () => fetch('http://localhost:3000/events'),
+                loader: () => fetch('https://athletic-hub-server-tawny.vercel.app/events'),
                 element: <PrivateRoute>
                     <ManageEvents />
                 </PrivateRoute>,
@@ -61,7 +63,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateEvents/:id',
                 Component: UpdateEvent,
-                loader: ({ params }) => fetch(`http://localhost:3000/events/${params.id}`),
+                loader: ({ params }) => fetch(`https://athletic-hub-server-tawny.vercel.app/events/${params.id}`),
                 hydrateFallbackElement: <Loading />
             },
             {
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
                     <EventDetails />
                 </PrivateRoute>
 
+            },
+            {
+                path: '/dashboard',
+                Component: Dashboard
+            },
+            {
+                path: '/profile',
+                Component: Profile
             }
         ]
     },

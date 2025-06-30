@@ -1,9 +1,8 @@
-
 import React from 'react';
+import { MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from 'react-icons/md';
 import { Link } from 'react-router';
-import { MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from "react-icons/md";
 
-const EventCards = ({ events }) => {
+const FootballCard = ({ events }) => {
     const { _id, eventname, event, photo, eventdate, location } = events
     // console.log(eventname);
     return (
@@ -24,8 +23,7 @@ const EventCards = ({ events }) => {
                 <Link to={`events/${_id}`} className='btn mt-3 bg-gradient-to-r from-blue-900 to-blue-300 text-white rounded-full  lg:flex'>Details</Link>
             </div>
         </div>
-
-    );
+    )
 };
 
-export default EventCards;
+export default FootballCard;

@@ -14,7 +14,7 @@ const MyBookings = () => {
     useEffect(() => {
         if (!user?.email) return;
 
-        axios.get(`http://localhost:3000/bookings?useremail=${user.email}`)
+        axios.get(`https://athletic-hub-server-tawny.vercel.app/bookings?useremail=${user.email}`)
             .then(res => {
                 setBookings(res.data);
                 setLoading(false);
@@ -40,7 +40,7 @@ const MyBookings = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/bookings/${_id}`, {
+                fetch(`https://athletic-hub-server-tawny.vercel.app/bookings/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(() => {

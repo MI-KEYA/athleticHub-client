@@ -25,7 +25,7 @@ const UpdateEvent = () => {
             datetime: newDatetime,
         };
 
-        fetch(`http://localhost:3000/events/${_id}`, {
+        fetch(`https://athletic-hub-server-tawny.vercel.app/events/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

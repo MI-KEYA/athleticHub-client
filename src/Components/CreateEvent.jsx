@@ -25,7 +25,7 @@ const CreateEvent = () => {
         const combinedDateTime = new Date(`${eventDate}T${eventTime}:00`);
         newEvent.datetime = combinedDateTime.toISOString();
 
-        axios.post("http://localhost:3000/events", newEvent)
+        axios.post("https://athletic-hub-server-tawny.vercel.app/events", newEvent)
             .then(res => {
 
                 if (res.data.insertedId) {

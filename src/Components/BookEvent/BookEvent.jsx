@@ -12,7 +12,7 @@ const BookEvent = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:3000/events')
+        fetch('https://athletic-hub-server-tawny.vercel.app/events')
             .then(res => res.json())
             .then(data => {
                 setEvents(data);
