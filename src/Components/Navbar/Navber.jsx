@@ -38,40 +38,45 @@ const Navber = () => {
     }
 
     const link = <>
+
         <NavLink to='/'
             className={({ isActive }) =>
-                isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
+                isActive ? 'md:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'md:text-white font-semibold ml-5'
             }>Home
         </NavLink>
+
         <NavLink to='/AllEvents'
             className={({ isActive }) =>
-                isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
+                isActive ? 'md:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'md:text-white font-semibold ml-5'
             }>All Events
         </NavLink>
-        {
-            user && (
-                <>
-                    <NavLink to='/createEvent'
-                        className={({ isActive }) =>
-                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold  '
-                        }>Create Event
-                    </NavLink>
 
-                    <NavLink to='/myBookings'
-                        className={({ isActive }) =>
-                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
-                        }>My Bookings
-                    </NavLink>
-                    <NavLink to='/manageEvents'
-                        className={({ isActive }) =>
-                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
-                        }>Manage Events
-                    </NavLink>
-                </>
-            )
-        }
+        {user && (
+            <>
 
+                <NavLink to='/createEvent'
+                    className={({ isActive }) =>
+                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                    }>Create Event
+                </NavLink>
+
+
+                <NavLink to='/myBookings'
+                    className={({ isActive }) =>
+                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                    }>My Bookings
+                </NavLink>
+
+                <NavLink to='/manageEvents'
+                    className={({ isActive }) =>
+                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                    }>Manage Events
+                </NavLink>
+
+            </>
+        )}
     </>
+
     return (
 
         <div className="navbar lg:px-30 py-5 shadow-sm bg-blue-950">
