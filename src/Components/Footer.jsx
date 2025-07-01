@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
         <footer className="bg-blue-950 text-white py-10 mt-16">
-            <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div className="max-w-11/13 mx-auto grid md:grid-cols-3 gap-10">
                 {/* About Section */}
-                <div>
+                <div className='flex flex-col justify-start gap-1 lg:gap-5 items-start'>
                     <h3 className="text-lg font-semibold mb-3">About AthleticHub</h3>
                     <p className="text-sm text-gray-300">
                         AthleticHub helps athletes discover and participate in sports events across various disciplines.
@@ -16,18 +17,18 @@ const Footer = () => {
 
 
                 {/* Why Choose Us Section */}
-                <div>
-                    <h3 className="text-lg font-semibold mb-3">Why Choose Us</h3>
+                <div className='flex flex-col items-center'>
+                    <h3 className="text-lg font-semibold mb-3">Our Survices</h3>
                     <ul className="text-sm text-gray-300 space-y-1 list-disc list-inside">
-                        <li> Easy event discovery & booking</li>
-                        <li> Verified hosts and real-time updates</li>
-                        <li> Community-driven experience</li>
-                        <li> Secure & simple interface</li>
+                        <Link to='/'><li className='font-semibold '>Home</li></Link>
+                        <Link to='/AllEvents'><li className='font-semibold mt-2'>All Events</li></Link>
+                        <Link ><li className='font-semibold mt-2'>About Us</li></Link>
+
                     </ul>
                 </div>
 
                 {/* Contact & Social */}
-                <div>
+                <div className='flex flex-col items-end'>
                     <h3 className="text-lg font-semibold mb-3">Get in Touch</h3>
                     <p className="text-sm text-gray-300">Email: support@athletichub.com</p>
                     <p className="text-sm text-gray-300 mb-2">Phone: +880-123-456789</p>

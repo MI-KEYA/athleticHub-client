@@ -3,7 +3,6 @@ import {
     createBrowserRouter,
 } from "react-router";
 import MainLayout from '../Layouts/MainLayout';
-import BookEvent from '../Components/BookEvent/BookEvent';
 import AuthLayout from '../Layouts/AuthLayout';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
@@ -19,6 +18,7 @@ import UpdateEvent from '../Components/UpdateEvent';
 import ManageEvents from '../Components/ManageEvents/ManageEvents';
 import Dashboard from '../Components/Dashboard/Dashboard';
 import Profile from '../Components/Profile/Profile';
+import AllEvents from '../Components/AllEvents/AllEvents';
 
 const router = createBrowserRouter([
     {
@@ -39,9 +39,9 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/bookEvent',
+                path: '/AllEvents',
                 element: <PrivateRoute>
-                    <BookEvent />
+                    <AllEvents />
                 </PrivateRoute>,
 
             },

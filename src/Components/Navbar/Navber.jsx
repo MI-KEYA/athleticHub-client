@@ -48,7 +48,7 @@ const Navber = () => {
                 isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold  '
             }>Create Event
         </NavLink>
-        <NavLink to='/bookEvent'
+        <NavLink to='/AllEvents'
             className={({ isActive }) =>
                 isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
             }>All Events

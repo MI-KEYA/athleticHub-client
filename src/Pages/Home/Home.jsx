@@ -19,7 +19,7 @@ const Home = () => {
             .then(data => setEvents(data))
     }, [])
     const sortedEvents = [...events].sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
-    const featuredEvents = sortedEvents.slice(0, 6);
+    const featuredEvents = sortedEvents.slice(0, 8);
     const heroImages = sortedEvents.slice(0, 3).map(event => event.photo);
     return (
         <div >

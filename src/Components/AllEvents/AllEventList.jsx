@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const BookEventList = ({ eventdata, index }) => {
+const AllEventsList = ({ eventdata, index }) => {
     const { _id, event, eventname, photo } = eventdata
 
     return (
@@ -44,4 +44,4 @@ const BookEventList = ({ eventdata, index }) => {
     );
 };
 
-export default BookEventList;
+export default AllEventsList;

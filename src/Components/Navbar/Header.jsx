@@ -25,7 +25,7 @@ const Header = () => {
                 isActive ? 'text-gray-500 font-bold border-b-3 ml-5 border-white' : 'text-gray-800 ml-5 font-semibold '
             }>Create Event
         </NavLink>
-        <NavLink to='/bookEvent'
+        <NavLink to='/AllEvents'
             className={({ isActive }) =>
                 isActive ? 'text-gray-500 font-bold border-b-3 ml-5 border-white' : 'text-gray-800 ml-5 font-semibold '
             }>All Events

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import BookEventList from './BookEventList';
+import AllEventList from './AllEventList';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../Context/AuthContext';
 import Loading from '../Loading';
 
-const BookEvent = () => {
+const AllEvents = () => {
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
     const [searchText, setSearchText] = useState('');
@@ -80,7 +80,7 @@ const BookEvent = () => {
                         <tbody>
                             {filteredEvents.length > 0 ? (
                                 filteredEvents.map((eventdata, index) => (
-                                    <BookEventList
+                                    <AllEventList
                                         key={eventdata._id}
                                         index={index}
                                         eventdata={eventdata}
@@ -101,4 +101,4 @@ const BookEvent = () => {
     );
 };
 
-export default BookEvent;
+export default AllEvents;

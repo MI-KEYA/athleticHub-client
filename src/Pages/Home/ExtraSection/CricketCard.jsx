@@ -1,9 +1,8 @@
-
 import React from 'react';
+import { MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from 'react-icons/md';
 import { Link } from 'react-router';
-import { MdOutlineEditCalendar, MdOutlineEmojiEvents, MdOutlineLocationOn } from "react-icons/md";
 
-const EventCards = ({ events }) => {
+const CricketCard = ({ events }) => {
     const { _id, eventname, event, photo, eventdate, location } = events
     // console.log(eventname);
     return (
@@ -32,8 +31,7 @@ const EventCards = ({ events }) => {
             </div>
         </div>
 
-
-    );
+    )
 };
 
-export default EventCards;
+export default CricketCard;

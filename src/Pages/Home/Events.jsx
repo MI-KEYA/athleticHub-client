@@ -17,7 +17,7 @@ const Events = ({ events }) => {
                     </EventCards>)
                 }
             </div>
-            <Link to='/bookEvent' className='btn flex justify-center items-center rounded-full w-1/5 mx-auto bg-blue-950 text-white '>
+            <Link to='/AllEvents' className='btn flex justify-center items-center rounded-full w-1/5 mx-auto bg-blue-950 text-white '>
                 See More<MdOutlineReadMore className='text-xl' />
             </Link>
         </div>
