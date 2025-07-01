@@ -3,6 +3,7 @@ import AllEventList from './AllEventList';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../Context/AuthContext';
 import Loading from '../Loading';
+import { MdOutlineArrowDropDown } from 'react-icons/md';
 
 const AllEvents = () => {
     const [events, setEvents] = useState([])
@@ -41,31 +42,39 @@ const AllEvents = () => {
     return (
         <div>
             <Helmet><title>AthleticHub | All Events</title></Helmet>
-            <h1 className='text-center text-3xl font-semibold text-blue-950 my-10'>
-                Book Your Preferred Event
-            </h1>
+
 
             <div className="w-full px-2 lg:w-2/3 lg:mx-auto my-5">
-                <div className="my-8">
-                    <form
-                        className="flex flex-col md:flex-row items-center justify-center gap-4"
-                        onSubmit={handleSearch}
-                    >
-                        <input
-                            type="text"
-                            placeholder="Search by event name or location..."
-                            className="input input-bordered w-[300px] max-w-xs text-blue-900 rounded-full"
-                            value={searchText}
-                            onChange={e => setSearchText(e.target.value)}
-                        />
-                        <button
-                            type="submit"
-                            className="btn bg-gradient-to-r from-blue-900 to-blue-400 text-white rounded-full"
+                <div className="grid grid-cols-1 md:grid-cols-6  gap-4 justify-between my-8">
+                    <div className='md:col-span-5'>
+                        <form
+                            className=" flex md:flex-row items-center md:px-0 px-10 gap-2"
+                            onSubmit={handleSearch}
                         >
-                            Search
-                        </button>
-                    </form>
+                            <input
+                                type="text"
+                                placeholder="Search by event name or location..."
+                                className="input input-bordered  max-w-xs text-blue-900 rounded-xl"
+                                value={searchText}
+                                onChange={e => setSearchText(e.target.value)}
+                            />
+                            <button
+                                type="submit"
+                                className="btn bg-gradient-to-r from-blue-900 to-blue-400 text-white rounded-xl"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                    <div className="dropdown dropdown-bottom px-10 md:px-0 mt-2 md:mt-0">
+                        <div tabIndex={0} role="button" className="btn rounded-xl bg-gradient-to-r from-blue-900 to-blue-400 text-white  text-950 m-1 flex items-center gap-2">Select <MdOutlineArrowDropDown className='text-2xl' /></div>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-1 w-50 p-2 shadow-sm">
+                            <li><a>Table</a></li>
+                            <li><a>Card</a></li>
+                        </ul>
+                    </div>
                 </div>
+
 
                 <div className="overflow-x-auto rounded-lg shadow">
                     <table className="table w-full text-sm">

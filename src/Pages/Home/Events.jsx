@@ -6,7 +6,7 @@ import { MdOutlineReadMore } from 'react-icons/md';
 const Events = ({ events }) => {
     // console.log(events);
     return (
-        <div className='w-11/13 mx-auto my-10'>
+        <div className='w-4/5 mx-auto my-10'>
             <h2 className='text-center font-bold  text-3xl'>Upcoming Events</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 my-10">
                 {

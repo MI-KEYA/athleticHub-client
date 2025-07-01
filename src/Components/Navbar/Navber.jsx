@@ -43,30 +43,38 @@ const Navber = () => {
                 isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
             }>Home
         </NavLink>
-        <NavLink to='/createEvent'
-            className={({ isActive }) =>
-                isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold  '
-            }>Create Event
-        </NavLink>
         <NavLink to='/AllEvents'
             className={({ isActive }) =>
                 isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
             }>All Events
         </NavLink>
-        <NavLink to='/myBookings'
-            className={({ isActive }) =>
-                isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
-            }>My Bookings
-        </NavLink>
-        <NavLink to='/manageEvents'
-            className={({ isActive }) =>
-                isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
-            }>Manage Events
-        </NavLink>
+        {
+            user && (
+                <>
+                    <NavLink to='/createEvent'
+                        className={({ isActive }) =>
+                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold  '
+                        }>Create Event
+                    </NavLink>
+
+                    <NavLink to='/myBookings'
+                        className={({ isActive }) =>
+                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
+                        }>My Bookings
+                    </NavLink>
+                    <NavLink to='/manageEvents'
+                        className={({ isActive }) =>
+                            isActive ? 'text-gray-200 ml-5 font-bold border-b-3  border-white' : 'text-white ml-5 font-semibold '
+                        }>Manage Events
+                    </NavLink>
+                </>
+            )
+        }
+
     </>
     return (
 
-        <div className="navbar lg:px-25 py-5 shadow-sm bg-blue-950">
+        <div className="navbar lg:px-30 py-5 shadow-sm bg-blue-950">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
