@@ -49,16 +49,19 @@ const DashboardSidebar = () => {
                     <Link to="/dashboard" className="flex items-center gap-3 hover:text-blue-400">
                         <MdOutlineDashboard /> Dashboard
                     </Link>
-                    <Link to="/myBookings" className="flex items-center gap-3 hover:text-blue-400">
-                        <FaCalendarAlt /> My Bookings
-                    </Link>
+
                     <Link to="/dashboard/profile" className="flex items-center gap-3 hover:text-blue-400">
                         <CgProfile /> Profile Info
                     </Link>
+
+
                     <Link to="/manageEvents" className="flex items-center gap-3 hover:text-blue-400">
                         <MdEventAvailable /> Manage Events
                     </Link>
-                    <Link to="/manageEvents" className="flex items-center gap-3 hover:text-blue-400">
+                    <Link to="/myBookings" className="flex items-center gap-3 hover:text-blue-400">
+                        <FaCalendarAlt /> My Bookings
+                    </Link>
+                    <Link to="/dashboard/help" className="flex items-center gap-3 hover:text-blue-400">
                         <MdEventAvailable /> Help/FAQ'S
                     </Link>
                 </div>

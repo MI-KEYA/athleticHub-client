@@ -21,6 +21,7 @@ import AllEvents from '../Components/AllEvents/AllEvents';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import DashboardHome from '../Components/Dashboard/DashboardHome';
+import Help from '../Components/Dashboard/Help';
 
 const router = createBrowserRouter([
     {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/profile',
                 Component: Profile
+            },
+            {
+                path: '/dashboard/help',
+                Component: Help
             }
         ]
 

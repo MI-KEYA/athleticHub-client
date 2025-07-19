@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router';
 import DashboardSidebar from '../Components/Dashboard/DashboardSidebar';
 import { FiMenu, FiX } from 'react-icons/fi';
+import icon from '../assets/R.png'
 
 const DashboardLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -13,7 +14,12 @@ const DashboardLayout = () => {
         <div className="min-h-screen bg-gray-100 relative">
             {/* Mobile Header */}
             <div className="md:hidden p-4 flex justify-between items-center bg-blue-950 text-white">
-                <span className="text-xl font-bold">AthleticHub</span>
+
+                <div className='flex items-center gap-2'>
+                    <img src={icon} alt="Logo" className="w-[60px]" />
+                    <span className="text-xl font-bold">AthleticHub</span>
+                </div>
+
                 <button onClick={toggleSidebar}>
                     <FiMenu className="h-7 w-7" />
                 </button>
