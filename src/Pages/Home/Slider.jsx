@@ -29,7 +29,7 @@ const Slider = ({ images = [] }) => {
                     the Athlete</motion.span>  in You!
             </motion.h1>
             <div className="flex justify-center">
-                <div className="carousel lg:w-4/5 w-4/5 md:w-11/12 mx-auto mb-10 rounded-xl h-[400px] ">
+                <div className="carousel lg:w-2/3 w-4/5 md:w-11/12 mx-auto mb-10 rounded-xl h-[400px] ">
                     {slides.map((img, index) => (
                         <div
                             key={index}

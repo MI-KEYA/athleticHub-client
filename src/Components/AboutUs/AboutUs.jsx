@@ -12,7 +12,7 @@ const AboutUs = () => {
         //         backgroundPosition: 'center',
         //     }}
         // >
-        <div className="w-11/12 md:w-4/5 mx-auto my-16 min-h-screen space-y-12 text-gray-800">
+        <div className="w-11/12 md:w-2/3 mx-auto my-16 min-h-screen space-y-12 text-gray-800">
             <Helmet>
                 <title>plantCare | AboutUs</title>
             </Helmet>

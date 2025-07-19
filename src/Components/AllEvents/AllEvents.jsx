@@ -47,7 +47,7 @@ const AllEvents = () => {
             <Helmet><title>AthleticHub | All Events</title></Helmet>
 
 
-            <div className="w-full px-2 lg:w-4/5 md:w-11/12 mx-auto my-5">
+            <div className="w-full px-2 lg:w-2/3 md:w-11/12 mx-auto mb-16 my-5">
                 <div className="grid grid-cols-1 md:grid-cols-6  gap-4 justify-between my-8">
                     <div className='md:col-span-5'>
                         <form
