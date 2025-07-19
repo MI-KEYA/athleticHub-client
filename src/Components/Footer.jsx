@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Footer = () => {
     return (
         <footer className="bg-blue-950 text-white py-10">
-            <div className="max-w-4/5 mx-auto grid md:grid-cols-3 gap-10">
+            <div className="max-w-2/3 mx-auto grid md:grid-cols-3 gap-10">
                 {/* About Section */}
                 <div className='flex flex-col justify-start gap-1 lg:gap-5 items-start'>
                     <h3 className="text-lg font-semibold mb-3">About AthleticHub</h3>

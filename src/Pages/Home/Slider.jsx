@@ -1,58 +1,104 @@
-import React from 'react';
-import { motion } from "motion/react";
+import React, { useEffect, useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { motion } from 'motion/react';
+import Loading from '../../Components/Loading';
 
 const Slider = ({ images = [] }) => {
-    // fallback to default static images if dynamic ones aren't passed
     const defaultImages = [
         '/assets/slider1.png',
         '/assets/slider2.png',
         '/assets/slider3.png',
-        '/assets/slider4.png'
     ];
 
-    const slides = images.length > 0 ? images : defaultImages;
+    const [isLoading, setIsLoading] = useState(true);
+    const slides = images.length ? images : defaultImages;
+
+    useEffect(() => {
+        const preloadImages = async () => {
+            const promises = slides.map(
+                (src) =>
+                    new Promise((resolve) => {
+                        const img = new Image();
+                        img.src = src;
+                        img.onload = resolve;
+                    })
+            );
+            await Promise.all(promises);
+            setIsLoading(false);
+        };
+        preloadImages();
+    }, [slides]);
+
+    if (isLoading) {
+        return <Loading />;
+    }
 
     return (
-
-        <div className=''>
+        <div className="mx-auto lg:w-2/3 w-4/5 md:w-11/12 rounded-xl overflow-hidden">
             <motion.h1
-
                 initial={{ scale: 0 }}
                 animate={{ scale: 1, transition: { duration: 4 } }}
-                className="text-3xl font-bold text-center mt-20 mb-10">Unleash <motion.span
-                    animate={
-                        {
-                            color: ["#CC6CE7", "#5DE2E7", "#EFC3CA"],
-                            transition: { duration: 2, repeat: Infinity }
-                        }
-                    }>
-                    the Athlete</motion.span>  in You!
+                className="text-3xl font-bold text-center mt-20 mb-10"
+            >
+                Unleash{' '}
+                <motion.span
+                    animate={{
+                        color: ['#CC6CE7', '#5DE2E7', '#EFC3CA'],
+                        transition: { duration: 2, repeat: Infinity },
+                    }}
+                >
+                    the Athlete
+                </motion.span>{' '}
+                in You!
             </motion.h1>
-            <div className="flex justify-center">
-                <div className="carousel lg:w-2/3 w-4/5 md:w-11/12 mx-auto mb-10 rounded-xl h-[400px] ">
-                    {slides.map((img, index) => (
-                        <div
+
+            <Carousel
+                showArrows={false}
+                showThumbs={false}
+                showStatus={false}
+                autoPlay
+                interval={3000}
+                infiniteLoop
+                transitionTime={600}
+                swipeable
+                emulateTouch
+                dynamicHeight={false}
+                renderIndicator={(onClickHandler, isSelected, index, label) => {
+                    const style = {
+                        margin: '0 6px',
+                        cursor: 'pointer',
+                        width: '12px',
+                        height: '12px',
+                        borderRadius: '50%',
+                        display: 'inline-block',
+                        backgroundColor: isSelected ? '#000' : '#ccc',
+                        transition: 'background-color 0.3s ease',
+                    };
+                    return (
+                        <li
+                            style={style}
+                            onClick={onClickHandler}
+                            onKeyDown={onClickHandler}
+                            value={index}
                             key={index}
-                            id={`slide${index}`}
-                            className="carousel-item relative w-full"
-                        >
-                            <img
-                                src={img}
-                                alt={`Slide ${index + 1}`}
-                                className="w-full object-cover object-center h-[400px]"
-                            />
-                            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                <a href={`#slide${(index - 1 + slides.length) % slides.length}`} className="btn btn-circle">
-                                    ❮
-                                </a>
-                                <a href={`#slide${(index + 1) % slides.length}`} className="btn btn-circle">
-                                    ❯
-                                </a>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`${label} ${index + 1}`}
+                        />
+                    );
+                }}
+            >
+                {slides.map((src, idx) => (
+                    <div key={idx} style={{ maxHeight: '400px', overflow: 'hidden' }}>
+                        <img
+                            src={src}
+                            alt={`Slide ${idx + 1}`}
+                            style={{ objectFit: 'cover', width: '100%', height: '400px' }}
+                        />
+                    </div>
+                ))}
+            </Carousel>
         </div>
     );
 };

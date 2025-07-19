@@ -59,7 +59,7 @@ const Navber = () => {
     );
 
     return (
-        <div className="bg-blue-950 py-4 shadow-sm">
+        <div className="bg-blue-950 py-3 shadow-sm">
             <div className="navbar w-11/12 lg:w-2/3 mx-auto flex justify-between items-center">
                 {/* Navbar Start - Logo and Mobile Menu */}
                 <div className="flex items-center gap-4">
@@ -77,7 +77,12 @@ const Navber = () => {
 
                     {/* Logo */}
                     <img src={icon} alt="logo" className="w-10" />
-                    <span className="hidden lg:block text-white text-xl font-semibold">AthleticHub</span>
+                    <span
+                        className="hidden lg:block text-white text-xl font-semibold no-underline hover:no-underline hover:bg-transparent hover:text-white cursor-default"
+                    >
+                        AthleticHub
+                    </span>
+
                 </div>
 
                 {/* Navbar Center - Desktop Links */}
