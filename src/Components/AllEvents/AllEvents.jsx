@@ -47,7 +47,7 @@ const AllEvents = () => {
             <Helmet><title>AthleticHub | All Events</title></Helmet>
 
 
-            <div className="w-full px-2 lg:w-4/5 lg:mx-auto my-5">
+            <div className="w-full px-2 lg:w-4/5 md:w-11/12 mx-auto my-5">
                 <div className="grid grid-cols-1 md:grid-cols-6  gap-4 justify-between my-8">
                     <div className='md:col-span-5'>
                         <form
@@ -113,7 +113,7 @@ const AllEvents = () => {
                         </table>
                     </div>
                 ) : (
-                    <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                    <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-4'>
                         {
                             filteredEvents.length > 0 ? (
                                 filteredEvents.map((eventdata) => (

@@ -12,7 +12,7 @@ const ManageEvents = () => {
     const myEvents = eventData.filter(event => event.username == user?.displayName)
 
     return (
-        <div className="w-full px-2 lg:w-2/3 lg:mx-auto my-5">
+        <div className="w-full min-h-screen px-2 lg:w-2/3 lg:mx-auto my-5 mb-16">
             <Helmet><title>AthleticHub | ManageEvent</title></Helmet>
             <div className="overflow-x-auto rounded-lg shadow">
                 <table className="table w-full text-sm">

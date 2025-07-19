@@ -41,13 +41,13 @@ const Navber = () => {
 
         <NavLink to='/'
             className={({ isActive }) =>
-                isActive ? 'md:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                isActive ? 'lg:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'md:text-white font-semibold ml-5'
             }>Home
         </NavLink>
 
         <NavLink to='/AllEvents'
             className={({ isActive }) =>
-                isActive ? 'md:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                isActive ? 'lg:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'lg:text-white font-semibold ml-5'
             }>All Events
         </NavLink>
 
@@ -56,25 +56,30 @@ const Navber = () => {
 
                 <NavLink to='/createEvent'
                     className={({ isActive }) =>
-                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                        isActive ? 'lg:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'lg:text-white font-semibold ml-5'
                     }>Create Event
                 </NavLink>
 
 
                 <NavLink to='/myBookings'
                     className={({ isActive }) =>
-                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                        isActive ? 'lg:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'lg:text-white font-semibold ml-5'
                     }>My Bookings
                 </NavLink>
 
                 <NavLink to='/manageEvents'
                     className={({ isActive }) =>
-                        isActive ? 'md:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'md:text-white font-semibold ml-5'
+                        isActive ? 'lg:text-gray-200 text-blue-900 ml-5 font-bold border-b-2 border-white' : 'lg:text-white font-semibold ml-5'
                     }>Manage Events
                 </NavLink>
 
             </>
         )}
+        <NavLink to='/aboutUs'
+            className={({ isActive }) =>
+                isActive ? 'lg:text-gray-200 text-blue-900 font-bold ml-5 border-b-2 border-white' : 'lg:text-white font-semibold ml-5'
+            }>AboutUs
+        </NavLink>
     </>
 
     return (
@@ -148,7 +153,7 @@ const Navber = () => {
                         <NavLink to="/auth/login" className="btn text-blue-950 rounded-full">Login</NavLink>
                     )
                 }
-                <NavLink to='/auth/register' className='btn  text-blue-950 rounded-full mr-4 hidden lg:flex'>Register</NavLink>
+                <NavLink to='/auth/register' className='btn  text-blue-950 rounded-full mr-4 hidden'>Register</NavLink>
             </div>
         </div>
 

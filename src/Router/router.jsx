@@ -16,9 +16,11 @@ import EventDetails from '../Components/EventDetails';
 import Loading from '../Components/Loading';
 import UpdateEvent from '../Components/UpdateEvent';
 import ManageEvents from '../Components/ManageEvents/ManageEvents';
-import Dashboard from '../Components/Dashboard/Dashboard';
 import Profile from '../Components/Profile/Profile';
 import AllEvents from '../Components/AllEvents/AllEvents';
+import AboutUs from '../Components/AboutUs/AboutUs';
+import DashboardLayout from '../Layouts/DashboardLayout';
+import DashboardHome from '../Components/Dashboard/DashboardHome';
 
 const router = createBrowserRouter([
     {
@@ -73,15 +75,27 @@ const router = createBrowserRouter([
                 </PrivateRoute>
 
             },
-            {
-                path: '/dashboard',
-                Component: Dashboard
-            },
+
             {
                 path: '/profile',
                 Component: Profile
+            },
+            {
+                path: '/aboutUs',
+                Component: AboutUs
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        Component: DashboardLayout,
+        children: [
+            {
+                index: true,
+                Component: DashboardHome
+            }
+        ]
+
     },
     {
         path: '/auth',

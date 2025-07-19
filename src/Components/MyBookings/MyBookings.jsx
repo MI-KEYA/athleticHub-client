@@ -5,6 +5,7 @@ import { MdOutlineEditCalendar, MdOutlineAccessTime, MdOutlineDelete } from "rea
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 import { Helmet } from 'react-helmet';
+import Loading from '../Loading';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const MyBookings = () => {
             });
     }, [user]);
 
-    if (loading) return <div className="text-center py-10">Loading your bookings...</div>;
+    if (loading) return <Loading />;
 
     if (bookings.length === 0) return <div className="text-center py-10 text-gray-500">No events booked yet.</div>;
 
@@ -60,10 +61,10 @@ const MyBookings = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-4 min-h-screen">
+        <div className="max-w-4xl mx-auto p-4 min-h-screen mb-16">
             <Helmet><title>AthleticHub | MyBookings</title></Helmet>
             <h2 className="text-2xl font-bold mb-6 text-blue-950">My Booked Events</h2>
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {bookings.map((booking, idx) => (
                     <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
                         <img src={booking.photo} alt={booking.eventname} className="w-full h-48 object-cover" />

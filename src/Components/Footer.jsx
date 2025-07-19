@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <footer className="bg-blue-950 text-white py-10 mt-16">
+        <footer className="bg-blue-950 text-white py-10">
             <div className="max-w-4/5 mx-auto grid md:grid-cols-3 gap-10">
                 {/* About Section */}
                 <div className='flex flex-col justify-start gap-1 lg:gap-5 items-start'>
@@ -17,18 +17,18 @@ const Footer = () => {
 
 
                 {/* Why Choose Us Section */}
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col md:items-center'>
                     <h3 className="text-lg font-semibold mb-3">Our Survices</h3>
                     <ul className="text-sm text-gray-300 space-y-1 list-disc list-inside">
                         <Link to='/'><li className='font-semibold '>Home</li></Link>
                         <Link to='/AllEvents'><li className='font-semibold mt-2'>All Events</li></Link>
-                        <Link ><li className='font-semibold mt-2'>About Us</li></Link>
+                        <Link to='/aboutUs'><li className='font-semibold mt-2'>About Us</li></Link>
 
                     </ul>
                 </div>
 
                 {/* Contact & Social */}
-                <div className='flex flex-col items-end'>
+                <div className='flex flex-col md:items-end'>
                     <h3 className="text-lg font-semibold mb-3">Get in Touch</h3>
                     <p className="text-sm text-gray-300">Email: support@athletichub.com</p>
                     <p className="text-sm text-gray-300 mb-2">Phone: +880-123-456789</p>
