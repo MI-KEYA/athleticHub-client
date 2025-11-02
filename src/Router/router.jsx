@@ -104,7 +104,17 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/help',
                 Component: Help
+            },
+            {
+                path: '/dashboard/manageEvents',
+                loader: () => fetch('https://athletic-hub-server-tawny.vercel.app/events'),
+                Component: ManageEvents
+            },
+            {
+                path: '/dashboard/mybookings',
+                Component: MyBookings
             }
+
         ]
 
     },

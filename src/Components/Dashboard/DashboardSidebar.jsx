@@ -55,10 +55,10 @@ const DashboardSidebar = () => {
                     </Link>
 
 
-                    <Link to="/manageEvents" className="flex items-center gap-3 hover:text-blue-400">
+                    <Link to="/dashboard/manageEvents" className="flex items-center gap-3 hover:text-blue-400">
                         <MdEventAvailable /> Manage Events
                     </Link>
-                    <Link to="/myBookings" className="flex items-center gap-3 hover:text-blue-400">
+                    <Link to="/dashboard/mybookings" className="flex items-center gap-3 hover:text-blue-400">
                         <FaCalendarAlt /> My Bookings
                     </Link>
                     <Link to="/dashboard/help" className="flex items-center gap-3 hover:text-blue-400">
